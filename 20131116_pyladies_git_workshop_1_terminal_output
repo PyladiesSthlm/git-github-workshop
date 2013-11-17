@@ -1,0 +1,170 @@
+Last login: Sat Nov 16 10:16:07 on ttys000
+[0:sofia@Sofias-MacBook-Pro ~]$git config --list
+user.name=sfro
+user.email=sofia@soundtrackyourbrand.com
+push.default=simple
+color.ui=true
+[0:sofia@Sofias-MacBook-Pro ~]$
+[0:sofia@Sofias-MacBook-Pro ~]$git config --global user.name ""
+[1:sofia@Sofias-MacBook-Pro ~]$git config --global user.email ""
+[1:sofia@Sofias-MacBook-Pro ~]$git config --global color.ui true
+[1:sofia@Sofias-MacBook-Pro ~]$
+[1:sofia@Sofias-MacBook-Pro ~]$cd projects/pyladies/demo/
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$ls
+PERSON_1	PERSON_2	demo_main.py	functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$cd PERSON_1
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$touch README.md
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$ls
+README.md
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git init
+Initialized empty Git repository in /Users/sofia/projects/pyladies/demo/PERSON_1/.git/
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$ls -a
+.		..		.git		README.md
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git add README.md 
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+#
+# Initial commit
+#
+# Changes to be committed:
+#   (use "git rm --cached <file>..." to unstage)
+#
+#	new file:   README.md
+#
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git commit -m "First commit"
+[master (root-commit) bb5e84d] First commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 README.md
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git log
+commit bb5e84d7ab7e3d810383e182774194ece4e6cdae
+Author: sfro <sofia@soundtrackyourbrand.com>
+Date:   Sat Nov 16 14:29:33 2013 +0100
+
+    First commit
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+nothing to commit, working directory clean
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git remote add origin git@github.com:sfro/demo.git
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git push -u origin master
+Counting objects: 3, done.
+Writing objects: 100% (3/3), 216 bytes | 0 bytes/s, done.
+Total 3 (delta 0), reused 0 (delta 0)
+To git@github.com:sfro/demo.git
+ * [new branch]      master -> master
+Branch master set up to track remote branch master from origin.
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+nothing to commit, working directory clean
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$cd ..
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$ls
+PERSON_1	PERSON_2	demo_main.py	functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$cp demo_main.py PERSON_1/demo_main.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$cp functions.py PERSON_1/functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo]$cd PERSON_1
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$ls -a
+.		.git		demo_main.py
+..		README.md	functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	demo_main.py
+#	functions.py
+nothing added to commit but untracked files present (use "git add" to track)
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git add demo_main.py 
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git add functions.py 
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	new file:   demo_main.py
+#	new file:   functions.py
+#
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git commit -m "Second commit"
+[master c6fa7a3] Second commit
+ 2 files changed, 43 insertions(+)
+ create mode 100644 demo_main.py
+ create mode 100644 functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+nothing to commit, working directory clean
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$python demo_main.py 
+ERROR! Something is wrong here! Did you manipulate private variables in the Functions class directly??
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$ls -a
+.		.git		demo_main.py	functions.pyc
+..		README.md	functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	functions.pyc
+nothing added to commit but untracked files present (use "git add" to track)
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$touch .gitignore
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$ls -a
+.		.git		README.md	functions.py
+..		.gitignore	demo_main.py	functions.pyc
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$vim .gitignore
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	.gitignore
+nothing added to commit but untracked files present (use "git add" to track)
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$open .gitignore
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git add .gitignore 
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git commit -m "gitignore file"
+[master f85a62e] gitignore file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 .gitignore
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 2 commits.
+#   (use "git push" to publish your local commits)
+#
+nothing to commit, working directory clean
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$git push
+Counting objects: 8, done.
+Delta compression using up to 4 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (7/7), 1.19 KiB | 0 bytes/s, done.
+Total 7 (delta 1), reused 0 (delta 0)
+To git@github.com:sfro/demo.git
+   bb5e84d..f85a62e  master -> master
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_1]$cd ../PERSON_2
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2]$git clone git@github.com:sfro/demo.git
+Cloning into 'demo'...
+remote: Counting objects: 10, done.
+remote: Compressing objects: 100% (6/6), done.
+remote: Total 10 (delta 1), reused 10 (delta 1)
+Receiving objects: 100% (10/10), done.
+Resolving deltas: 100% (1/1), done.
+Checking connectivity... done
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2]$ls -a
+.	..	demo
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2]$cd demo/
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$ls -a
+.		.git		README.md	functions.py
+..		.gitignore	demo_main.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$open demo_main.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$open functions.py 
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$python demo_main.py 
+Hello world!
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$vim functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$open functions.py
+[0:sofia@Sofias-MacBook-Pro ~/projects/pyladies/demo/PERSON_2/demo]$
